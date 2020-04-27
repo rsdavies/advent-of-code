@@ -16,5 +16,20 @@ def read_input(file_path: str) -> List[str]:
     return read_data
 
 
+def read_wires(file_path: str) -> List[List[str]]:
+    """
+    reads an input wires text file (i.e. for day 3) and returns list of lists. Each wire is its own list in the list.
+    :param file_path: The full file path to be read in
+    :return: A list of lists of strings
+    """
+    f = open(file_path)
+    read_data = f.readlines()
+    wires = [0] * len(read_data)
+
+    for num in range(0, len(read_data)):
+        wires[num] = read_data[num].split(',')
+
+    return wires
+
 if __name__ == "__main__":
-    read_input("/Users/rhiannonsteele/PycharmProjects/advent-of-code/day_1/input.txt")
+    read_wires("/Users/rhiannonsteele/PycharmProjects/advent-of-code/day_3/input.txt")
